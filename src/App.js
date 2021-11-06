@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import './Tailwind.min.css';
+import './App.css'
+import { BrowserRouter as Router, Switch,Route } from 'react-router-dom';
+import DropFiles from './DropFiles';
+import SignupForm from './FormGenerator'
+import Framer from './Framer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/dropfiles" component={DropFiles}/>
+        <Route path="/framer" component={Framer}/>
+        <Route path="/tamu" component={SignupForm}/>
+        <Route path="/lokasi" component={SignupForm}/>
+        <Route path="/dashboard" component={SignupForm}/>
+        <Route exact path="/" component={SignupForm}/>
+      </Switch> 
+    </Router>
   );
 }
 
